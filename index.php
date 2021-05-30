@@ -20,7 +20,7 @@ body {
 <body>
 <div class="container text-center">
 <p style="margin-top:10%;font-size: 110px; color:white;">Welcome to this coffee shop</p>
-<button style="width:350px; height: 130px;font-size: 30px;border-radius:25px;" type="button" class="btn btn-dark">Open menu</button>
+<button style="width:350px; height: 130px;font-size: 30px;border-radius:15px;" type="button" class="btn btn-dark">Open menu</button>
 
 </div>
 </body>
