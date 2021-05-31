@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script src="https://kit.fontawesome.com/df4285e61f.js" crossorigin="anonymous"></script>
 <style>
 /*First, position the curtain panels so that they are not only side-by-side, but also in front of the prize itself.*/
 body {
@@ -94,6 +95,43 @@ input[type=checkbox]:checked ~ div.curtain__panel--right {
   border: 2px solid #333;
   border-radius:20px;
 }
+.btn {
+    outline: none !important;
+    box-shadow: none !important;
+    color:white !important;
+
+}
+#closeMenu {
+  width:150px;
+  height: 50px;
+  position:absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color:black!important;
+}
+#closeMenu:hover {
+  color:white !important; 
+}
+#search:hover i {
+  color:white !important; 
+
+}
+
+.inputDesign {
+  border: 0px;
+  border-bottom:none;
+  background:linear-gradient(#999,#999) bottom no-repeat;
+  background-size:50% 1.5px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  transition: background-size 0.5s;
+}
+.inputDesign:focus {
+  outline: none;
+  background:linear-gradient(#999,#999) bottom no-repeat;
+  background-size:100% 1.5px;
+}
 @media only screen and (max-width: 1024px) {
   .window {
     position: relative;
@@ -104,12 +142,25 @@ input[type=checkbox]:checked ~ div.curtain__panel--right {
   background-color:white;
   border: 1px solid black;
 }
+#closeMenu {
+  width:350px;
+  height: 100px;
 
 }
-.btn {
-    outline: none !important;
-    box-shadow: none !important;
-    color:white !important;
+#searchBar input[type=text]{
+  width:450px;
+  height:50px;
+  font-size:20px;
+
+}
+#searchBar button{
+  width:50px;
+  height:50px;
+
+}
+#searchBar h6{
+  font-size:20px;
+}
 
 }
 
@@ -129,9 +180,14 @@ input[type=checkbox]:checked ~ div.curtain__panel--right {
     <!-- The prize behind the curtain panels -->
     <div class="curtain__prize">
     <div style="margin-top:80px;width:100%;height:100%;" class="row d-flex justify-content-center ">
-      <div class="window">
-      <button style="width:150px; height: 50px;position: absolute;bottom: 7%;left: 36%;" type="button" class="btn btn-dark" onclick="hideMenu()">Close menu</button>
+      <div class="window justify-content-center">
+      <div id="searchBar">
+      <input type="text" class="inputDesign" name="Search" placeholder="Search">
+      <button id="search" style="margin-left:5px;"class="btn btn-outline-dark"><i style="color:black;"class="fa fa-search"></i></button>
+      <h6 id="title" class="text-muted text-center">Beverages</h6> 
+      </div>
 
+      <button id="closeMenu" style="" type="button" class="btn btn-outline-dark" onclick="hideMenu()">Close menu</button>
       </div>
     </div>
     </div> 
