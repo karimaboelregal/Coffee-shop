@@ -4,11 +4,15 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <style>
     body{
-    background: url(beans.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;    
+        background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0.2, 0, 1) ), url('beans.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;    
+        height: 100%;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
     #container-all{
         position: absolute;
@@ -156,7 +160,9 @@
 <script>
     var currentTab = 0; 
     showTab(currentTab); 
-
+    function asd() {
+        alert("sdfsf");
+    }
     function showTab(n) {
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
@@ -167,12 +173,12 @@
     }
     if (n == (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "Submit";
+        document.getElementById("nextBtn").onclick=function () {window.location='checkout.php';};
     } else {
         document.getElementById("nextBtn").innerHTML = "Next";
     }
     fixStepIndicator(n)
     }
-
     function nextPrev(n) {
     var x = document.getElementsByClassName("tab");
     x[currentTab].style.display = "none";

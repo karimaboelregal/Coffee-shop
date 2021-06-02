@@ -274,7 +274,7 @@ th img {
     </li>
   </ul>
 
-  <table  class="table table-hover" style="width:80%;position:absolute; left:50%; transform:translate(-50%);">
+  <table  class="table table-hover" style="width:90%;position:absolute; left:50%; transform:translate(-50%);">
   <thead>
     <tr style="display:none;">
       <th scope="col">#</th>
@@ -288,7 +288,7 @@ th img {
       <th scope="row"><img src="coffee1.jpg" style="width:50px;height:50px;"></th>
       <td>House blend</td>
       <td>15$</td>
-      <td><button id="search" class="btn btn-outline-dark"><i style="color:black;" class="fas fa-cash-register"></i></button></td>
+      <td><button id="search" class="btn btn-outline-dark" ><i style="color:black;" class="fas fa-cash-register"></i></button></td>
     </tr>
     <tr>
     <th scope="row"><img src="coffee1.jpg" style="width:50px;height:50px;"></th>
@@ -312,7 +312,7 @@ th img {
 
       </tbody>
     </table>
-      <button id="customize" style="" type="button" class="btn btn-outline-dark" onclick="hideMenu()">Customize drink</button>
+      <button id="customize" style="" type="button" class="btn btn-outline-dark" onclick="window.location.href='CustomDrink.php'">Customize drink</button>
       <button id="closeMenu" style="" type="button" class="btn btn-outline-dark" onclick="hideMenu()">Close menu</button>
       </div>
     </div>

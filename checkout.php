@@ -107,9 +107,9 @@ Font-family: Raleway;
     <h1>Total price is: 50</h2>
     <div class="tab">
         <input type="text" name="name" id="id" placeholder="Full name" class="inputDesign" /><br>
-        <input type="text" name="name" id="id" placeholder="Email address" class="inputDesign" /><br>
-        <input type="text" name="name" id="id" placeholder="Phone number" class="inputDesign" /><br>
-        <input type="text" name="name" id="id" placeholder="Address" class="inputDesign" /><br>
+        <input type="text" name="email" id="id" placeholder="Email address" class="inputDesign" /><br>
+        <input type="text" name="number" id="id" placeholder="Phone number" class="inputDesign" /><br>
+        <input type="text" name="address" id="id" placeholder="Address" class="inputDesign" /><br>
 
     </div>
     <div >
