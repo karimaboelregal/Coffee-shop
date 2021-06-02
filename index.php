@@ -4,6 +4,9 @@
 <script src="https://kit.fontawesome.com/df4285e61f.js" crossorigin="anonymous"></script>
 <style>
 /*First, position the curtain panels so that they are not only side-by-side, but also in front of the prize itself.*/
+*{
+Font-family: Raleway;
+}
 body {
   overflow: hidden;
 }
@@ -63,7 +66,11 @@ We set the value at -100% and 100%, because we want to slide or close the curtai
 /* For this assignment, I changed the transform property to translateY(-100%) to make the curtain open up vertically. However, this caused both sides of the curtain slided up at the same time, so it looked like one giant block going up, and not two panels. 
 Instead, I kept the transform property to translateX, but I changed how far the panels opened up to -40% and 40%. I can see better how the two panel curtains work with this transition.*/
 .curtain__prize {
-  background: #333;
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1) ), url('beans.jpg'); no-repeat center center fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;    
   color: #fff;
   padding: 1rem 0;
   position: absolute; /* Forces the prize position into the container start */
@@ -90,12 +97,10 @@ input[type=checkbox]:checked ~ div.curtain__panel--right {
 }
 .window {
   position: relative;
-
+  border-radius:10px;
   width:500px;
   height:500px;
   background-color:white;
-  border: 2px solid #333;
-  border-radius:20px;
 }
 .btn {
     outline: none !important;
@@ -161,7 +166,6 @@ input[type=checkbox]:checked ~ div.curtain__panel--right {
   	width:800px;
   	height:1200px;
   	background-color:white;
-  	border: 1px solid black;
 }
 #closeMenu {
   width:350px;
@@ -223,9 +227,15 @@ td button {
 }
 #pages {
   position:absolute;
-  bottom: 15%;
-  left: 5%;
+  bottom: 14%;
+  left: 50%;
+  transform: translateX(-50%);
 }
+th img {
+  border-radius:5px;
+  W box-shadow: 1px 1px 6px black;
+}
+
 .table>tbody>tr>td, 
 .table>tbody>tr>th, 
 .table>tfoot>tr>td, 
@@ -251,11 +261,7 @@ td button {
     <div class="curtain__prize">
     <div style="margin-top:80px;width:100%;height:100%;" class="row d-flex justify-content-center ">
       <div class="window justify-content-center">
-      <div id="searchBar">
-      <input type="text" class="inputDesign" name="Search" placeholder="Search">
-      <button id="search" style="margin-left:5px;"class="btn btn-outline-dark"><i style="color:black;"class="fa fa-search" ></i></button>
-      <h6 id="title" class="text-muted text-center">Drinks</h6> 
-      </div>
+      <h6 style="margin-top:20px;margin-bottom:20px;color:black;font-size:20px;"id="title" class="text-center">Drinks</h6> 
   <ul class="pagination justify-content-center" id="pages">
     <li class="page-item disabled">
       <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -268,7 +274,7 @@ td button {
     </li>
   </ul>
 
-  <table class="table table-hover">
+  <table  class="table table-hover" style="width:80%;position:absolute; left:50%; transform:translate(-50%);">
   <thead>
     <tr style="display:none;">
       <th scope="col">#</th>
@@ -304,9 +310,9 @@ td button {
     </tr>
     <tr>
 
-  </tbody>
-</table>
-<button id="customize" style="" type="button" class="btn btn-outline-dark" onclick="hideMenu()">Customize drink</button>
+      </tbody>
+    </table>
+      <button id="customize" style="" type="button" class="btn btn-outline-dark" onclick="hideMenu()">Customize drink</button>
       <button id="closeMenu" style="" type="button" class="btn btn-outline-dark" onclick="hideMenu()">Close menu</button>
       </div>
     </div>
