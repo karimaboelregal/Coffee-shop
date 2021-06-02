@@ -234,6 +234,10 @@ td button {
 .table>thead>tr>th {
       vertical-align: middle;
  }
+.content-checkbox {
+  display: grid;
+  justify-content: center;
+}
 </style>
 </head>
 <body>
@@ -251,63 +255,21 @@ td button {
     <div class="curtain__prize">
     <div style="margin-top:80px;width:100%;height:100%;" class="row d-flex justify-content-center ">
       <div class="window justify-content-center">
-      <div id="searchBar">
-      <input type="text" class="inputDesign" name="Search" placeholder="Search">
-      <button id="search" style="margin-left:5px;"class="btn btn-outline-dark"><i style="color:black;"class="fa fa-search" ></i></button>
-      <h6 id="title" class="text-muted text-center">Drinks</h6> 
-      </div>
-  <ul class="pagination justify-content-center" id="pages">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Previous</a>
-    </li>
-    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
+      <h6 id="title" class="text-muted text-center" style="font-size:30px;margin-top:5%;">Customize your drink</h6>
 
-  <table class="table table-hover">
-  <thead>
-    <tr style="display:none;">
-      <th scope="col">#</th>
-      <th scope="col">Product name</th>
-      <th scope="col">Product price</th>
-      <th scope="col">Select button</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"><img src="coffee1.jpg" style="width:50px;height:50px;"></th>
-      <td>House blend</td>
-      <td>15$</td>
-      <td><button id="search" class="btn btn-outline-dark"><i style="color:black;" class="fas fa-cash-register"></i></button></td>
-    </tr>
-    <tr>
-    <th scope="row"><img src="coffee1.jpg" style="width:50px;height:50px;"></th>
-      <td>Dark roast</td>
-      <td>25$</td>
-      <td ><button id="search" class="btn btn-outline-dark"><i style="color:black;" class="fas fa-cash-register"></i></button></td>
-    </tr>
-    <tr>
-    <th scope="row"><img src="coffee1.jpg" style="width:50px;height:50px;"></th>
-      <td>Decaf</td>
-      <td>30$</td>
-      <td><button id="search" class="btn btn-outline-dark"><i style="color:black;" class="fas fa-cash-register"></i></button></td>
-    </tr>
-    <tr>
-    <th scope="row"><img src="coffee1.jpg" style="width:50px;height:50px;"></th>
-      <td>Expresso</td>
-      <td>21$</td>
-      <td><button id="search" class="btn btn-outline-dark"><i style="color:black;" class="fas fa-cash-register"></i></button></td>
-    </tr>
-    <tr>
 
-  </tbody>
-</table>
-<button id="customize" style="" type="button" class="btn btn-outline-dark" onclick="hideMenu()">Customize drink</button>
-      <button id="closeMenu" style="" type="button" class="btn btn-outline-dark" onclick="hideMenu()">Close menu</button>
+      <table>
+        <tr>
+            <td><input type="radio" name="opt"></td>
+            <td>Option 1</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="opt"></td>
+            <td>Option 2</td>
+        </tr>
+    </table>
+
+
       </div>
     </div>
     </div> 
