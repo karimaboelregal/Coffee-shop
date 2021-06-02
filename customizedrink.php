@@ -275,7 +275,7 @@ td button {
     </div> 
     
     <div class="curtain__panel curtain__panel--right" onclick="showMenu();">
-    <h1 style="margin-left:10px;">coffee shop <br/><br/> to open menu</h1>
+    <h1 style="margin-left:10px;">Coffee Shop <br/><br/> To Open Menu</h1>
 	  </div>   
   </div>
 </div> 
