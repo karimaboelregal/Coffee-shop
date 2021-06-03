@@ -118,11 +118,11 @@ Font-family: Raleway;
         <button type="button" id="nextBtn">Submit</button>
         </div>
     </div>
-    <!-- Circles which indicates the steps of the form: -->
     </form>
     <?php 
     if (isset($_GET["data"])) {
-        echo base64_decode($_GET["data"]);
+        
+        echo base64_decode($_GET["data"]); // output example espresso-soy-large
     }
     ?>
 
