@@ -40,19 +40,19 @@
 
         #finalize h1 {
         text-align: center; 
-        font-size:27px; 
+        font-size:19px; 
         }
 
         #finalize h2 {
-        font-size:23px; 
+        font-size:15px; 
         }
 
         #finalize h3 {
-        font-size:20px; 
+        font-size:15px; 
         }
 
         #finalize p{
-            font-size:20px;
+            font-size:15px;
         }
 
         #finalize input {
@@ -61,7 +61,7 @@
         }
     
         #finalize label{
-            font-size: 20px;
+            font-size: 15px;
             padding-left:0;
         }
     
@@ -98,32 +98,54 @@
 <body>
     <div id="container-all">
         <form id="finalize" >
-            <h1>Drink</h1>
-            <h2>Description</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis alias nemo necessitatibus ullam, possimus corrupti qui nobis doloremque natus eveniet, id saepe excepturi at ducimus?</p>
-            <h2>Select Size</h2>
-            <input type="radio" id="small" name="size" value="small,5">
-            <label for="small">Small (5)</label><br>
-            <input type="radio" id="Medium" name="size" value="Medium,10">
-            <label for="Medium">Medium (10)</label><br>
-            <input type="radio" id="Large" name="size" value="Large,15">
-            <label for="Large">Large (15)</label>
-            <h2>Quantity</h2>
-            <div id="input">
-                <input id=demoInput type=number>
-            </div>
-            <h3>Price</h3>
-            <p>50$</p>
-            <button type="button">Add To Basket</button>
+        <?php 
+        include "database.php";
+        if (isset($_GET["id"])) { 
+            $id = $_GET["id"];
+            echo "<h1 id='dName'>".$drinksArray[$id]->name."</h1>";
+            echo "<h2>Description</h2>";
+            echo "<p>".$drinksArray[$id]->description."</p>";
+            echo "<img style='width:150px;height:150px;' src='".$drinksArray[$id]->name.".jpg'>";
+            echo "<h2> Select Size </h2>";
+            echo '<input type="radio" id="small" name="size" value="small,'.$drinksArray[$id]->prices[0].'">';
+            echo '<label for="small">Small ('.$drinksArray[$id]->prices[0].')</label><br>';
+            echo '<input type="radio" id="Medium" name="size" value="Medium,'.$drinksArray[$id]->prices[1].'"';
+            echo '<label for="Medium">Medium ('.$drinksArray[$id]->prices[1].')</label><br>';
+            echo '<input type="radio" id="Large" name="size" value="Large,'.$drinksArray[$id]->prices[1].'">';
+            echo '<label for="Large">Large ('.$drinksArray[$id]->prices[2].')</label><br>';
+            echo "<h2> Select Condiment </h2>";
+            echo '<input type="radio" id="cond" name="condType" value="none, 0" checked="checked">';
+            echo '<label>none(0)</label><br>';
+            for ($i = 0; $i < count($condArray); $i++) {
+                echo '<input type="radio" id="cond" name="condType" value="'.$condArray[$i]->name.','.$condArray[$i]->price.'">';
+                echo '<label for='.$condArray[$i]->name.'>'.$condArray[$i]->name.'('.$condArray[$i]->price.')</label><br>';
+            }
+
+        } else {
+            header("Location: index.php");
+        }
+        ?>
+            <button type="button" onclick="checkSelected()">Go to checkout</button>
         </form>
     </div>    
     <script>
-        function increment() {
-            document.getElementById('demoInput').stepUp();
+
+    function checkSelected() {
+        var sizeSelected = document.querySelector('input[name="size"]:checked');
+        var condSelected = document.querySelector('input[name="condType"]:checked');
+        if (sizeSelected == null) {
+            alert("Please choose a size");
+            return;
         }
-        function decrement() {
-            document.getElementById('demoInput').stepDown();
-        }
+
+        var condArr = condSelected.value.split(',');
+        var sizeArr = sizeSelected.value.split(',');
+        var price =  parseInt(condArr[1]) + parseInt(sizeArr[1]);
+        var text = document.getElementById('dName').innerHTML +'-'+condArr[0]+'-'+sizeArr[0]+"-"+price;
+        var enctext = btoa(text);
+        window.location='checkout.php?data='+enctext;
+
+    }
     </script>
 </body>
 </html>

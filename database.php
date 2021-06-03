@@ -42,4 +42,16 @@ while($row = $result->fetch_assoc()) {
     array_push($bevArray, $c);
 }
 
+function pushOrder($name, $email, $address, $phone, $price, $dr) {
+    global $conn;
+    $sql = "INSERT INTO orderhistory (customerName, email, phone, address, drinkOrdered, price, date) VALUES ('$name', '$email', '$phone', '$address', '$dr', '$price', now())";
+    $result = $conn->query($sql);
+    if ($result === TRUE) {
+        echo "New record created successfully";
+      } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+          
+}
+
 ?>

@@ -99,6 +99,20 @@ Font-family: Raleway;
     }
 
 </style>
+<?php 
+include "database.php";
+if (isset($_GET["name"])) { 
+    $n = $_GET["name"];
+    $em = $_GET["email"];
+    $num = $_GET["number"];
+    $add = $_GET["address"];
+    $price = $_GET["price"];
+    $drink = $_GET["drink"];
+
+    pushOrder($n, $em, $add, $num, $price, $drink);
+    header("Location: index.php");
+}
+?>
 <body>
 <div id="container-all">
     <form id="choices" >
@@ -109,17 +123,26 @@ Font-family: Raleway;
         $valueArray = explode('-', $val);
         echo "<h1>You ordered ".$valueArray[2]." ".$valueArray[0]." ".$valueArray[1]." Coffee.</h1>";
         echo "<h1>The total price is ".$valueArray[3]."</h1>";
+    } else {
+        header("Location: index.php");
     }
     ?>
     <div class="row d-flex justify-content-center">
-        <input type="text" name="name" id="id" placeholder="Full name" class="inputDesign" class= /><br>
-        <input type="text" name="email" id="id" placeholder="Email address" class="inputDesign" /><br>
-        <input type="text" name="number" id="id" placeholder="Phone number" class="inputDesign" /><br>
-        <input type="text" name="address" id="id" placeholder="Address" class="inputDesign" /><br>
+        <input type="text" name="name" id="id" placeholder="Full name" class="inputDesign" required/><br>
+        <input type="text" name="email" id="id" placeholder="Email address" class="inputDesign" required /><br>
+        <input type="text" name="number" id="id" placeholder="Phone number" class="inputDesign" required /><br>
+        <input type="text" name="address" id="id" placeholder="Address" class="inputDesign" required/><br>
+        
+        <?php 
+            echo '<input style="display:none;" type="text" name="price" id="id" placeholder="Full name" class="inputDesign" value = "'.$valueArray[3].'"/><br>';
+            $var = $valueArray[2]." ".$valueArray[0]." ".$valueArray[1];
+            echo '<input style="display:none;" type="text" name="drink" id="id" placeholder="Full name" class="inputDesign" value = "'.$var.'"/><br>'
+
+?>
         </div>
     </div>
     <div >
-        <button type="button" id="nextBtn">Submit</button>
+        <button type="submit" id="nextBtn">Submit</button>
     </div>
     </form>
 
