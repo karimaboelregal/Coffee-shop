@@ -269,32 +269,11 @@ td {
     <?php
     for ($i = 0; $i < count($drinksArray); $i++) {
       echo "<tr>";
-      echo "<th scope='row'><img src='coffee1.jpg' style='width:50px;height:50px;'></th>";
+      echo "<th scope='row'><img src='".$drinksArray[$i]->name.".jpg' style='width:50px;height:50px;'></th>";
       echo "<td class='text-center'>".$drinksArray[$i]->name."</td>";
       echo "<td><td><button id='search' class='btn btn-outline-dark' ><i style='color:black;' class='fas fa-cash-register'></i></button></td></td>";
       echo "</tr>";
     } 
-    echo "<tr>";
-    echo "<th scope='row'><img src='coffee1.jpg' style='width:50px;height:50px;'></th>";
-    echo "<td class='text-center'>sdfsdf</td>";
-    echo "<td><td><button id='search' class='btn btn-outline-dark' ><i style='color:black;' class='fas fa-cash-register'></i></button></td></td>";
-    echo "</tr>";
-    echo "<tr>";
-    echo "<th scope='row'><img src='coffee1.jpg' style='width:50px;height:50px;'></th>";
-    echo "<td class='text-center'>sdfsdf</td>";
-    echo "<td><td><button id='search' class='btn btn-outline-dark' ><i style='color:black;' class='fas fa-cash-register'></i></button></td></td>";
-    echo "</tr>";
-    echo "<tr>";
-    echo "<th scope='row'><img src='coffee1.jpg' style='width:50px;height:50px;'></th>";
-    echo "<td class='text-center'>sdfsdf</td>";
-    echo "<td><td><button id='search' class='btn btn-outline-dark' ><i style='color:black;' class='fas fa-cash-register'></i></button></td></td>";
-    echo "</tr>";
-    echo "<tr>";
-    echo "<th scope='row'><img src='coffee1.jpg' style='width:50px;height:50px;'></th>";
-    echo "<td class='text-center'>sdfsdf</td>";
-    echo "<td><td><button id='search' class='btn btn-outline-dark' ><i style='color:black;' class='fas fa-cash-register'></i></button></td></td>";
-    echo "</tr>";
-
   ?>
 
     </tbody>

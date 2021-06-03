@@ -110,7 +110,7 @@
     <div class="tab"><h2>Coffee Grind:</h2>
     <?php 
         for ($i = 0; $i < count($bevArray); $i++) {
-            echo '<input type="radio" class="bevss" name="bevType" value="'.$bevArray[$i]->name.'">';
+            echo '<input type="radio" class="bevss" name="bevType" value="'.$bevArray[$i]->name.','.$bevArray[$i]->price.'">';
             echo '<label for='.$bevArray[$i]->name.'>'.$bevArray[$i]->name.'('.$bevArray[$i]->price.')</label><br>';
         }
     ?>
@@ -118,19 +118,19 @@
     <div class="tab"><h2>Milk:</h2>
     <?php 
         for ($i = 0; $i < count($condArray); $i++) {
-            echo '<input type="radio" id="cond" name="condType" value="'.$condArray[$i]->name.'">';
+            echo '<input type="radio" id="cond" name="condType" value="'.$condArray[$i]->name.','.$condArray[$i]->price.'">';
             echo '<label for='.$condArray[$i]->name.'>'.$condArray[$i]->name.'('.$condArray[$i]->price.')</label><br>';
         }
     ?>
 
     </div>
     <div class="tab"><h2>Size:</h2>
-    <input type="radio" id="small" name="size" value="small">
+    <input type="radio" id="small" name="size" value="small,5">
         <label for="small">Small(5)</label><br>
-        <input type="radio" id="Medium" name="size" value="Medium">
+        <input type="radio" id="Medium" name="size" value="Medium,10">
         <label for="Medium">Medium(10)</label><br>
-        <input type="radio" id="Large" name="size" value="Large">
-        <label for="Large">Large(25)</label>
+        <input type="radio" id="Large" name="size" value="Large,15">
+        <label for="Large">Large(15)</label>
     </div>
     <div style="overflow:auto;">
         <div >
@@ -200,7 +200,11 @@
             alert("Please choose something before proceeding");
             return;
         }
-        var text = bevSelected.value+'-'+condSelected.value+'-'+sizeSelected.value;
+        var bevArr = bevSelected.value.split(',');
+        var condArr = condSelected.value.split(',');
+        var sizeArr = sizeSelected.value.split(',');
+        var price = parseInt(bevArr[1]) + parseInt(condArr[1]) + parseInt(sizeArr[1]);
+        var text = bevArr[0]+'-'+condArr[0]+'-'+sizeArr[0]+"-"+price;
         var enctext = btoa(text);
         window.location='checkout.php?data='+enctext;
     }

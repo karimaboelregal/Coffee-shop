@@ -122,7 +122,8 @@ Font-family: Raleway;
     <?php 
     if (isset($_GET["data"])) {
 
-        echo "<a style='color:white'>".base64_decode($_GET["data"])."</a>"; // output example espresso-soy-large
+        echo "<a style='color:white'>".base64_decode($_GET["data"])."</a>"; // output example espresso-soy-large-45 
+        // so it sends first the drink name then the extra on it then the size then the price sepereated by dashes(-)
     }
     ?>
 
