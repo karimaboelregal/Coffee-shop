@@ -121,8 +121,8 @@ Font-family: Raleway;
     </form>
     <?php 
     if (isset($_GET["data"])) {
-        
-        echo base64_decode($_GET["data"]); // output example espresso-soy-large
+
+        echo "<a style='color:white'>".base64_decode($_GET["data"])."</a>"; // output example espresso-soy-large
     }
     ?>
 
