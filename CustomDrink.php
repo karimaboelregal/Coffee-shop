@@ -101,38 +101,26 @@
     background-color: #04AA6D;
     }
 </style>
-<body>
+<body><?php include "database.php"; ?>
 <div id="container-all">
     <form id="choices" >
     <h1>Customize Your Coffee:</h1>
     <div class="tab"><h2>Coffee Grind:</h2>
-        <input type="radio" id="houseBlend" name="coffeeType" value="houseBlend">
-        <label for="houseBlend">House Blend</label><br>
-        <input type="radio" id="darkRoast" name="coffeeType" value="darkRoast">
-        <label for="darkRoast">Dark Roast</label><br>
-        <input type="radio" id="Decaff" name="coffeeType" value="Decaff">
-        <label for="Decaff">Decaff</label><br>
-        <input type="radio" id="Espresso" name="coffeeType" value="Espresso">
-        <label for="Espresso">Espresso</label>
-
+    <?php 
+        for ($i = 0; $i < count($bevArray); $i++) {
+            echo '<input type="radio" id="houseBlend" name="coffeeType" value="houseBlend">';
+            echo '<label for='.$bevArray[$i]->name.'>'.$bevArray[$i]->name.'</label><br>';
+        }
+    ?>
     </div>
     <div class="tab"><h2>Milk:</h2>
-    <input type="radio" id="almond" name="milkType" value="almond">
-        <label for="almond">Almond Milk</label><br>
-        <input type="radio" id="fullCream" name="milkType" value="fullCream">
-        <label for="fullCream">Full Cream</label><br>
-        <input type="radio" id="coconut" name="milkType" value="coconut">
-        <label for="coconut">Coconut Milk</label>
-    </div>
-    <div class="tab"><h2>Flavors:</h2>
-    <input type="radio" id="houseBlend" name="coffeeType" value="houseBlend">
-        <label for="houseBlend">House Blend</label><br>
-        <input type="radio" id="darkRoast" name="coffeeType" value="darkRoast">
-        <label for="darkRoast">Dark Roast</label><br>
-        <input type="radio" id="Decaff" name="coffeeType" value="Decaff">
-        <label for="Decaff">Decaff</label><br>
-        <input type="radio" id="Espresso" name="coffeeType" value="Espresso">
-        <label for="Espresso">House Blend</label>
+    <?php 
+        for ($i = 0; $i < count($condArray); $i++) {
+            echo '<input type="radio" id="houseBlend" name="coffeeType" value="houseBlend">';
+            echo '<label for='.$condArray[$i]->name.'>'.$condArray[$i]->name.'</label><br>';
+        }
+    ?>
+
     </div>
     <div class="tab"><h2>Size:</h2>
     <input type="radio" id="small" name="size" value="small">
@@ -150,7 +138,6 @@
     </div>
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center;margin-top:40px;">
-        <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
