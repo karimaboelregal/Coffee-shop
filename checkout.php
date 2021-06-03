@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 <style>
 *{
 Font-family: Raleway;
@@ -119,6 +120,12 @@ Font-family: Raleway;
     </div>
     <!-- Circles which indicates the steps of the form: -->
     </form>
+    <?php 
+    if (isset($_GET["data"])) {
+        echo base64_decode($_GET["data"]);
+    }
+    ?>
+
 </div>
 
 </body>

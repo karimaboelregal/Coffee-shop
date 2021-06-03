@@ -2,6 +2,8 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+
 <style>
     body{
         background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0.2, 0, 1) ), url('beans.jpg') no-repeat center center fixed;
@@ -108,27 +110,27 @@
     <div class="tab"><h2>Coffee Grind:</h2>
     <?php 
         for ($i = 0; $i < count($bevArray); $i++) {
-            echo '<input type="radio" id="houseBlend" name="coffeeType" value="houseBlend">';
-            echo '<label for='.$bevArray[$i]->name.'>'.$bevArray[$i]->name.'</label><br>';
+            echo '<input type="radio" class="bevss" name="bevType" value="'.$bevArray[$i]->name.'">';
+            echo '<label for='.$bevArray[$i]->name.'>'.$bevArray[$i]->name.'('.$bevArray[$i]->price.')</label><br>';
         }
     ?>
     </div>
     <div class="tab"><h2>Milk:</h2>
     <?php 
         for ($i = 0; $i < count($condArray); $i++) {
-            echo '<input type="radio" id="houseBlend" name="coffeeType" value="houseBlend">';
-            echo '<label for='.$condArray[$i]->name.'>'.$condArray[$i]->name.'</label><br>';
+            echo '<input type="radio" id="cond" name="condType" value="'.$condArray[$i]->name.'">';
+            echo '<label for='.$condArray[$i]->name.'>'.$condArray[$i]->name.'('.$condArray[$i]->price.')</label><br>';
         }
     ?>
 
     </div>
     <div class="tab"><h2>Size:</h2>
     <input type="radio" id="small" name="size" value="small">
-        <label for="small">Small</label><br>
+        <label for="small">Small(5)</label><br>
         <input type="radio" id="Medium" name="size" value="Medium">
-        <label for="Medium">Medium</label><br>
+        <label for="Medium">Medium(10)</label><br>
         <input type="radio" id="Large" name="size" value="Large">
-        <label for="Large">Large</label>
+        <label for="Large">Large(25)</label>
     </div>
     <div style="overflow:auto;">
         <div >
@@ -147,9 +149,6 @@
 <script>
     var currentTab = 0; 
     showTab(currentTab); 
-    function asd() {
-        alert("sdfsf");
-    }
     function showTab(n) {
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
@@ -160,14 +159,21 @@
     }
     if (n == (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "Submit";
-        document.getElementById("nextBtn").onclick=function () {window.location='checkout.php';};
+        document.getElementById("nextBtn").onclick= submittedD;
     } else {
+        document.getElementById("nextBtn").onclick= function () {nextPrev(1); };
         document.getElementById("nextBtn").innerHTML = "Next";
     }
     fixStepIndicator(n)
     }
     function nextPrev(n) {
     var x = document.getElementsByClassName("tab");
+    var bevSelected = document.querySelector('input[name="bevType"]:checked');
+    var condSelected = document.querySelector('input[name="condType"]:checked');
+    if ((currentTab == 0 && bevSelected == null) || (currentTab == 1 && condSelected == null)) {
+        alert("Please choose something before proceeding");
+        return;
+    }
     x[currentTab].style.display = "none";
     currentTab = currentTab + n;
     if (currentTab >= x.length) {
@@ -183,6 +189,20 @@
         x[i].className = x[i].className.replace(" active", "");
     }
     x[n].className += " active";
+    }
+
+    function submittedD() {
+        var bevSelected = document.querySelector('input[name="bevType"]:checked');
+        var condSelected = document.querySelector('input[name="condType"]:checked');
+        var sizeSelected = document.querySelector('input[name="size"]:checked');
+        
+        if(sizeSelected == null) {   
+            alert("Please choose something before proceeding");
+            return;
+        }
+        var text = bevSelected.value+'-'+condSelected.value+'-'+sizeSelected.value;
+        var enctext = btoa(text);
+        window.location='checkout.php?data='+enctext;
     }
 </script>
 

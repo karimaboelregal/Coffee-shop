@@ -235,10 +235,7 @@ th img {
   border-radius:5px;
   W box-shadow: 1px 1px 6px black;
 }
-#collapse1{
-overflow-y:scroll;
-height:200px;
-}
+
 td {
   vertical-align: middle !important;
 }
