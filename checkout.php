@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 <style>
@@ -52,10 +54,6 @@ Font-family: Raleway;
         font-family: Raleway;
         padding-left:0;
     }
-    .tab {
-        text-align: center;  
-        margin-bottom:10px;
-    }
 
     button {
     justify-content:center;
@@ -88,10 +86,11 @@ Font-family: Raleway;
     background:linear-gradient(#000,#000) bottom no-repeat;
     background-size:75% 1.5px;
     Font-family: Raleway;
-    font-size: 18px;
+    font-size: 15px;
     transition: background-size 0.5s;
     margin-bottom:10px;
     padding:8px;
+    width:60%;
     }
     .inputDesign:focus {
     outline: none;
@@ -103,29 +102,26 @@ Font-family: Raleway;
 <body>
 <div id="container-all">
     <form id="choices" >
-    <h2>Enter your info:</h1>
-    <h1>You ordered coffee</h1>
-    <h1>Total price is: 50</h2>
     <div class="tab">
-        <input type="text" name="name" id="id" placeholder="Full name" class="inputDesign" /><br>
+    <?php 
+    if (isset($_GET["data"])) {
+        $val = base64_decode($_GET["data"]);
+        $valueArray = explode('-', $val);
+        echo "<h1>You ordered ".$valueArray[2]." ".$valueArray[0]." ".$valueArray[1]." Coffee.</h1>";
+        echo "<h1>The total price is ".$valueArray[3]."</h1>";
+    }
+    ?>
+    <div class="row d-flex justify-content-center">
+        <input type="text" name="name" id="id" placeholder="Full name" class="inputDesign" class= /><br>
         <input type="text" name="email" id="id" placeholder="Email address" class="inputDesign" /><br>
         <input type="text" name="number" id="id" placeholder="Phone number" class="inputDesign" /><br>
         <input type="text" name="address" id="id" placeholder="Address" class="inputDesign" /><br>
-
-    </div>
-    <div >
-        <div >
-        <button type="button" id="nextBtn">Submit</button>
         </div>
     </div>
+    <div >
+        <button type="button" id="nextBtn">Submit</button>
+    </div>
     </form>
-    <?php 
-    if (isset($_GET["data"])) {
-
-        echo "<a style='color:white'>".base64_decode($_GET["data"])."</a>"; // output example espresso-soy-large-45 
-        // so it sends first the drink name then the extra on it then the size then the price sepereated by dashes(-)
-    }
-    ?>
 
 </div>
 
